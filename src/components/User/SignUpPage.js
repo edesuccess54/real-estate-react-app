@@ -41,27 +41,29 @@ export default function SignUpPage() {
 
   return (
     <div className='center'>
-      <form onSubmit={handleOnSubmit}>
-        {USER_FIELDS.map((uf) => (
-          <InputFormRow
-            key={uf.labelName}
-            labelName={uf.labelName}
-            name={uf.name}
-            value={userInfo[uf.name]}
-            handleOnChange={handleOnChange}
-          />
-        ))}
-        <article className='form-row'>
-          <label>Password</label>
-          <input
-            type='password'
-            name='password'
-            value={userInfo.password || ''}
-            onChange={handleOnChange}
-          />
-        </article>
-        <FormSubmitButton />
-      </form>
+      <div className="form-wrapper">
+        <form onSubmit={handleOnSubmit}>
+          {USER_FIELDS.map((uf) => (
+            <InputFormRow
+              key={uf.labelName}
+              labelName={uf.labelName}
+              name={uf.name}
+              value={userInfo[uf.name]}
+              handleOnChange={handleOnChange}
+            />
+          ))}
+          <article className='form-row'>
+            <label>Password</label>
+            <input
+              type='password'
+              name='password'
+              value={userInfo.password || ''}
+              onChange={handleOnChange}
+            />
+          </article>
+          <FormSubmitButton />
+        </form>
+      </div>
     </div>
   );
 }
